@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown Menu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+    }
 
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-button {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dropdown">
+    <button onclick="toggleDropdown()" class="dropdown-button">Home</button>
+    <div id="dropdownMenu" class="dropdown-content">
+      <a href="#profilo">Profilo</a>
+      <a href="#impostazioni">Impostazioni</a>
+      <a href="#logout">Logout</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleDropdown() {
+      document.getElementById("dropdownMenu").classList.toggle("show");
+    }
+
+    // Chiude il menu se clicchi fuori
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropdown-button')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
+🔧 Funzionalità:
+Quando clicchi su "Home", viene mostrato un menu con tre opzioni.
+
+Se clicchi fuori dal menu, questo si chiude automaticamente.
+
+Puoi aggiungere altre voci o collegamenti modificando la sezione <a>.
+
+Se vuoi che te lo trasformi in un file .zip o lo pubblichi online in una demo, fammi sapere!
+
+
+
+Hai detto:
+non utilizzate JavaScript
+
+ChatGPT ha detto:
+Perfetto! Se vuoi realizzare un menu a discesa (dropdown) senza usare JavaScript, possiamo farlo usando solo HTML e CSS. Questo approccio sfrutta i pseudoselettori CSS come :hover o l’input checkbox per controllare la visibilità del menu.
+
+Ecco un esempio semplice:
+
+✅ Esempio solo con HTML e CSS
+html
+Copia
+Modifica
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown CSS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-button {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dropdown">
+    <div class="dropdown-button">Home</div>
+    <div class="dropdown-content">
+      <a href="#profilo">Profilo</a>
+      <a href="#impostazioni">Impostazioni</a>
+      <a href="#logout">Logout</a>
+    </div>
+  </div>
+
+</body>
+</html>
