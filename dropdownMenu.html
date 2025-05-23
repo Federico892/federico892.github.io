@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <link rel="icon" type="image/x-icon" href="market-analysis-svgrepo-com.svg">
-  
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 .navbar {
   overflow: hidden;
-  background-color: green;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar a {
@@ -25,6 +25,7 @@
 }
 
 .dropdown .dropbtn {
+  cursor: pointer;
   font-size: 16px;  
   border: none;
   outline: none;
@@ -35,14 +36,17 @@
   margin: 0;
 }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
   background-color: red;
 }
 
 .dropdown-content {
   display: none;
+  position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
 .dropdown-content a {
@@ -58,28 +62,69 @@
   background-color: #ddd;
 }
 
-.dropdown:hover .dropdown-content {
+.show {
   display: block;
 }
 </style>
 </head>
-<body>
-   <h1 align="center"><font color="red"> Economia Circolare</font></h1>
-  <hr>
+<body style="background-color:white;">
+
 <div class="navbar">
-  <a href="#home">Definizione </a>
-  <a href="#news">Principi </a>
+  <a href="#home">Economia circolare</a>
+  <a href="#news">Principi fondamentali</a>
+
   <div class="dropdown">
-    <button class="dropbtn">Cose Fondamentali <i class="fa fa-caret-down"></i>
+    <button class="dropbtn" onclick="toggleDropdown(event, 'dropdown1')">Che cos'è l'economia circolare?
+      <i class="fa fa-caret-down"></i>
     </button>
-    <div class="dropdown-content">
-      <a href="#">Eco-Design</a>
-      <a href="#">Vantaggi </a>
-      <a href="#"> Svantaggi </a>
+    <div class="dropdown-content" id="dropdown1">
+      <a href="https://auryy.altervista.org/che-cose-leconomia-circolare/">Che cos'è l'economia circolare?</a>
+      <a href="https://auryy.altervista.org/progettazione-per-la-durata-e-la-riparabilita/">Progettazione per la durata e la riparabilità</a>
+      <a href="https://auryy.altervista.org/sostenibilita-nella-produzione/">Sostenibilità nella produzione</a>
+      <a href="https://auryy.altervista.org/riciclo-e-recupero/">Riciclo e recupero</a>
+      <a href="https://auryy.altervista.org/riduzione-dei-rifiuti/">Riduzione dei rifiuti</a>
+    </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown(event, 'dropdown2')">Benefici dell'economia circolare
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" id="dropdown2">
+      <a href="https://auryy.altervista.org/pro-e-contro-delleconmia-circolare/">Benefici dell'economia circolare</a>
+      <a href="https://auryy.altervista.org/i-contro-delleconomia-circolare/">Gli svantaggi dell'economia</a>
+    </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown(event, 'dropdown3')">Cosa sta facendo l'UE
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" id="dropdown3">
+      <a href="https://auryy.altervista.org/cosa-sta-facendo-lue-e-litalia-per-far-si-che-si-realizzi-tutto-cio/">Cosa sta facendo l'UE</a>
+      <a href="https://auryy.altervista.org/cosa-sta-facendo-litalia/">Cosa sta facendo l'Italia</a>
     </div>
   </div> 
 </div>
 
+<h3>Dropdown Menu inside a Navigation Bar</h3>
+<p>Click on the "Dropdown" link to see the dropdown menu.</p>
+
+<script>
+function toggleDropdown(event, id) {
+  event.stopPropagation();
+  closeAllDropdowns();
+  document.getElementById(id).classList.toggle("show");
+}
+
+function closeAllDropdowns() {
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+  for (var i = 0; i < dropdowns.length; i++) {
+    dropdowns[i].classList.remove('show');
+  }
+}
+}
+</script>
 
 </body>
 </html>
