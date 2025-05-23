@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina con Dropdown Menu</title>
+    <title>Pagina con Sotto-Menu</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -68,6 +68,31 @@
             color: black;
         }
 
+        /* Sotto-menu */
+        .sub-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .sub-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #555;
+            min-width: 160px;
+            left: 100%;
+            top: 0;
+            z-index: 2;
+        }
+
+        .sub-dropdown:hover .sub-dropdown-content {
+            display: block;
+        }
+
+        .sub-dropdown-content a {
+            padding: 10px;
+            background-color: #444;
+        }
+
         footer {
             background-color: #333;
             color: white;
@@ -88,27 +113,56 @@
     <nav>
         <a href="#home">Home</a>
         <a href="#about">Chi Siamo</a>
+        
+        <!-- Dropdown Servizi con sotto-menu -->
         <div class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Servizi</a>
             <div class="dropdown-content">
                 <a href="#">Web Design</a>
+                
+                <!-- Sotto-menu per Web Design -->
+                <div class="sub-dropdown">
+                    <a href="#">Design Creativo</a>
+                    <div class="sub-dropdown-content">
+                        <a href="#">Loghi</a>
+                        <a href="#">Branding</a>
+                    </div>
+                </div>
+
                 <a href="#">Sviluppo Software</a>
+                
+                <!-- Sotto-menu per Sviluppo Software -->
+                <div class="sub-dropdown">
+                    <a href="#">Siti Web</a>
+                    <div class="sub-dropdown-content">
+                        <a href="#">E-commerce</a>
+                        <a href="#">Portali Aziendali</a>
+                    </div>
+                </div>
+
                 <a href="#">SEO</a>
+                
+                <!-- Sotto-menu per SEO -->
+                <div class="sub-dropdown">
+                    <a href="#">SEO On-Page</a>
+                    <div class="sub-dropdown-content">
+                        <a href="#">Ottimizzazione Contenuti</a>
+                        <a href="#">Struttura del Sito</a>
+                    </div>
+                </div>
             </div>
         </div>
+        
         <a href="#contact">Contatti</a>
     </nav>
 
     <main>
         <div style="padding: 20px;">
             <h2>Benvenuto nella sezione principale!</h2>
-            <p>Questa è una pagina di esempio che contiene un menu a discesa (dropdown) utilizzato in un sito web.</p>
+            <p>Questa pagina include un menu a discesa con sotto-menu (sub-dropdown) per ogni voce di "Servizi". Passa il mouse sopra le voci per esplorare le opzioni.</p>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Il Tuo Sito Web</p>
-    </footer>
 
 </body>
 </html>
